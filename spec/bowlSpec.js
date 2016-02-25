@@ -15,12 +15,12 @@ describe("#pinsKnockedDown", function(){
 describe("#firstBowl", function (){
   it ('pushes [0-9, ] or [10, x] for strike to hash', function(){
     bowl1.firstBowl(num);
-    console.log(num);
     if (num > -1 && num < 10)
+    console.log(num);
     expect(bowl1.arr).toEqual({[bowl1.frame]:[num, ]});
-    console.log(bowl1.arr);
     if (num === 10)
     expect(bowl1.arr).toEqual({[bowl1.frame]:[10, 'x']});
+    console.log(bowl1.arr);
   });
   });
 

@@ -12,7 +12,7 @@ bowl.prototype.firstBowl = function(pins){
 
 bowl.prototype.secondBowl = function(pins){
   var num = pins;
-  if (num > -1 && num < 10) return(num);
+  if (num > -1 && num < 10) this.arr[this.frame].push(num);
   if (num === 10) return('/');
 };
 
