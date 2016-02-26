@@ -1,21 +1,38 @@
 function bowl(){
-  this.arr = {};
+  this.obj = {};
   this.frame = 0;
+  this.residual = 10;
 }
 
-bowl.prototype.firstBowl = function(pins){
+bowl.prototype.firstBowl = function(firstpins){
   this.frame += 1;
-  var num = pins;
-  if (num > -1 && num < 10) this.arr[this.frame]= [num, ];   //this.arr.push([num, ]);
-  if (num === 10) this.arr[this.frame]= [num, 'x'];
+  this.num = firstpins;
+  this.residual -=  this.num;
+  // console.log(this.num);
+  // console.log(this.residual);
+  if (this.num > -1 && this.num < 10) { this.obj[this.frame] = [this.num, ]};
+  if (this.num === 10) {this.obj[this.frame]= [this.num, 'x'] };
+  // return (this.num > -1 && this.num < 10) ? this.obj[this.frame] = [this.num, ] : this.obj[this.frame]= [this.num, 'x'];
 };
 
-bowl.prototype.secondBowl = function(pins){
-  var num = pins;
-  if (num > -1 && num < 10) this.arr[this.frame].push(num);
-  if (num === 10) return('/');
+bowl.prototype.secondBowl = function(secondpins){
+  // if (this.residual === 0) return 'zero pins no second ball';
+  console.log(this.residual);
+  this.num2 = secondpins;
+  if (this.residual === 0) { this.obj[this.frame].push('/'); }
+  if (this.residual > 0) { this.obj[this.frame].push(this.num2); }
+  // return (this.residual === 0) ? this.obj[this.frame].push('/') : this.obj[this.frame].push(this.num2);
 };
 
-bowl.prototype.pinsKnockedDown = function(){
+
+
+
+
+// private
+bowl.prototype._firstPinsKnockedDown = function(){
   return Math.floor(Math.random() * 11);
+};
+
+bowl.prototype._secondPinsKnockedDown = function(){
+  return Math.floor(Math.random() * this.residual);
 };
