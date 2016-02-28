@@ -74,12 +74,11 @@ beforeEach (function() {
   });
 
   describe('#residualReset', function(){
-    it('resets frame count to 10', function(){
+    it('resets residual (pin count) to 10', function(){
       bowl1.firstBowl(x);
       bowl1.residualReset();
       expect(bowl1.residual).toEqual(10);
     });
-
   });
 
 });
